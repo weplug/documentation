@@ -174,32 +174,6 @@
       }
     }
   },
-  "components": {
-    "schemas": {
-      "gatheredData": {
-        "title": "Root Type for gatheredData",
-        "description": "The root of the gatheredData type's schema.",
-        "type": "object",
-        "properties": {
-          "temperature": {
-            "format": "double",
-            "type": "number"
-          },
-          "usedAmps": {
-            "format": "double",
-            "type": "number"
-          },
-          "light": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "movement": {
-            "type": "boolean"
-          }
-        }
-      }
-    }
-  },
   "tags": [
     {
       "$$hashKey": "object:1118"
