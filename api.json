@@ -1,28 +1,39 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "iot-projekt",
+    "title": "Weplug project",
     "description": "",
     "version": "1.0.0"
   },
   "paths": {
-    "/devices": {},
+    "/devices": {
+      "regParameters": [],
+      "refParameters": []
+    },
     "/devices/{id}": {
       "get": {
-        "summary": "change request",
-        "description": "kontrola ci bola provedene zmena v settingoch",
+        "summary": "get info about changes for device",
+        "description": "control if exist some changes for device",
         "responses": {
           "200": {
-            "description": "some changis?",
+            "description": "get info about changes",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "boolean"
                 }
               }
+            },
+            "schema": {
+              "$ref": "#/definitions/changeInfo"
             }
           }
-        }
+        },
+        "tags": [
+          "devices"
+        ],
+        "regParameters": [],
+        "refParameters": []
       },
       "post": {
         "responses": {
@@ -33,9 +44,41 @@
                   "$ref": "#/components/schemasgatheredData"
                 }
               }
+            },
+            "schema": {
+              "$ref": "#/definitions/changeInfo"
             }
           }
-        }
+        },
+        "tags": [
+          "devices"
+        ],
+        "summary": "post gathered data",
+        "regParameters": [
+          {
+            "name": "",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/gatheredData"
+            }
+          }
+        ],
+        "refParameters": [],
+        "parameters": [
+          {
+            "name": "",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/gatheredData"
+            }
+          }
+        ]
       },
       "parameters": [
         {
@@ -44,9 +87,91 @@
           "required": true,
           "schema": {
             "type": "string"
-          }
+          },
+          "type": "string"
         }
-      ]
+      ],
+      "regParameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "type": "string"
+        }
+      ],
+      "refParameters": []
+    },
+    "devices/{id}/options": {},
+    "/devices/{id}/active-plug": {},
+    "/accounts": {},
+    "/accounts/log-in": {
+      "post": {
+        "tags": [],
+        "summary": "",
+        "description": "",
+        "externalDocs": {
+          "description": "Find more info here",
+          "url": "https://swagger.io"
+        },
+        "operationId": "",
+        "consumes": [],
+        "produces": []
+      }
+    },
+    "/accounts/{id}": {
+      "get": {
+        "tags": [],
+        "summary": "",
+        "description": "",
+        "externalDocs": {
+          "description": "Find more info here",
+          "url": "https://swagger.io"
+        },
+        "operationId": "",
+        "consumes": [],
+        "produces": []
+      },
+      "put": {
+        "tags": [],
+        "summary": "",
+        "description": "",
+        "externalDocs": {
+          "description": "Find more info here",
+          "url": "https://swagger.io"
+        },
+        "operationId": "",
+        "consumes": [],
+        "produces": []
+      }
+    },
+    "/accounts/{id}/device/{device-id}": {
+      "get": {
+        "tags": [],
+        "summary": "",
+        "description": "",
+        "externalDocs": {
+          "description": "Find more info here",
+          "url": "https://swagger.io"
+        },
+        "operationId": "",
+        "consumes": [],
+        "produces": []
+      },
+      "post": {
+        "tags": [],
+        "summary": "",
+        "description": "",
+        "externalDocs": {
+          "description": "Find more info here",
+          "url": "https://swagger.io"
+        },
+        "operationId": "",
+        "consumes": [],
+        "produces": []
+      }
     }
   },
   "components": {
@@ -73,6 +198,30 @@
           }
         }
       }
+    }
+  },
+  "tags": [
+    {
+      "$$hashKey": "object:1118"
+    },
+    {
+      "name": "devices",
+      "$$hashKey": "object:1119"
+    },
+    {
+      "name": "accounts",
+      "$$hashKey": "object:1120"
+    }
+  ],
+  "definitions": {
+    "changeInfo": {
+      "options": true,
+      "activePlug": true
+    },
+    "gatheredData": {
+      "temperature": 21,
+      "amps": 1121.5,
+      "light": true
     }
   }
 }
