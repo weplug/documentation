@@ -1,0 +1,261 @@
+---
+swagger: "2.0"
+info:
+  description: ""
+  version: "1.0.0"
+  title: "Weplug project"
+tags:
+- {}
+- name: "devices"
+- name: "accounts"
+schemes:
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /devices: {}
+  /devices/{id}:
+    get:
+      tags:
+      - "devices"
+      summary: "get info about changes for device"
+      description: "control if exist some changes for device"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "get info about changes"
+          schema:
+            $ref: "#/definitions/changeInfo"
+    post:
+      tags:
+      - "devices"
+      summary: "post gathered data"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: ""
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/gatheredData"
+      responses:
+        200:
+          schema:
+            $ref: "#/definitions/changeInfo"
+  devices/{id}/options:
+    get:
+      tags:
+      - "devices"
+      summary: "get actualized options for device"
+      description: ""
+      operationId: ""
+      consumes: []
+      produces: []
+      parameters: []
+      responses:
+        200: {}
+      externalDocs:
+        description: "Find more info here"
+        url: "https://swagger.io"
+  /devices/{id}/active-plug:
+    get:
+      tags:
+      - "devices"
+      summary: "get array with active plugs"
+      description: ""
+      operationId: ""
+      consumes: []
+      produces: []
+      parameters: []
+      responses:
+        200:
+          schema:
+            $ref: "#/definitions/activePlug"
+      externalDocs:
+        description: "Find more info here"
+        url: "https://swagger.io"
+  /accounts: {}
+  /accounts/log-in:
+    post:
+      tags:
+      - "accounts"
+      summary: "log in"
+      description: ""
+      operationId: ""
+      consumes: []
+      produces: []
+      parameters: []
+      externalDocs:
+        description: "Find more info here"
+        url: "https://swagger.io"
+  /accounts/{id}:
+    get:
+      tags:
+      - "accounts"
+      summary: "get account informations"
+      description: ""
+      operationId: ""
+      consumes: []
+      produces: []
+      parameters:
+      - name: "id"
+        in: "header"
+        description: ""
+        required: true
+        type: "integer"
+      externalDocs:
+        description: "Find more info here"
+        url: "https://swagger.io"
+    put:
+      tags:
+      - "accounts"
+      summary: "change account info"
+      description: ""
+      operationId: ""
+      consumes: []
+      produces: []
+      parameters:
+      - name: "id"
+        in: "header"
+        description: ""
+        required: true
+        type: "integer"
+      externalDocs:
+        description: "Find more info here"
+        url: "https://swagger.io"
+    delete:
+      tags:
+      - "accounts"
+      summary: "delete account"
+      description: ""
+      operationId: ""
+      consumes: []
+      produces: []
+      parameters:
+      - name: "id"
+        in: "header"
+        description: ""
+        required: true
+        type: "integer"
+      externalDocs:
+        description: "Find more info here"
+        url: "https://swagger.io"
+  /accounts/{id}/device/{device-id}:
+    get:
+      tags:
+      - "accounts"
+      summary: "get info about device"
+      description: ""
+      operationId: ""
+      consumes: []
+      produces: []
+      parameters:
+      - name: "id"
+        in: "header"
+        description: ""
+        required: true
+        type: "integer"
+      - name: "device-id"
+        in: "header"
+        description: ""
+        required: true
+        type: "string"
+      externalDocs:
+        description: "Find more info here"
+        url: "https://swagger.io"
+    post:
+      tags:
+      - "accounts"
+      summary: "set options for device"
+      description: ""
+      operationId: ""
+      consumes: []
+      produces: []
+      parameters:
+      - name: "id"
+        in: "header"
+        description: ""
+        required: true
+        type: "integer"
+      - name: "device-id"
+        in: "header"
+        description: ""
+        required: true
+        type: "string"
+      externalDocs:
+        description: "Find more info here"
+        url: "https://swagger.io"
+  /accounts/register:
+    post:
+      tags:
+      - "accounts"
+      summary: "register new user"
+      description: ""
+      operationId: ""
+      consumes: []
+      produces: []
+      parameters: []
+      externalDocs:
+        description: "Find more info here"
+        url: "https://swagger.io"
+  /accounts/{id}/device:
+    get:
+      tags:
+      - "accounts"
+      summary: "get basic info about all devices"
+      description: ""
+      operationId: ""
+      consumes: []
+      produces: []
+      parameters:
+      - name: "id"
+        in: "header"
+        description: ""
+        required: true
+        type: "integer"
+      externalDocs:
+        description: "Find more info here"
+        url: "https://swagger.io"
+  /accounts/{id}/device/{device-id}/register:
+    post:
+      tags:
+      - "accounts"
+      summary: "register new device with sending options"
+      description: ""
+      operationId: ""
+      consumes: []
+      produces: []
+      parameters:
+      - name: "id"
+        in: "header"
+        description: ""
+        required: true
+        type: "integer"
+      - name: "device-id"
+        in: "header"
+        description: ""
+        required: true
+        type: "string"
+      - in: "body"
+        name: "options"
+        description: ""
+        required: true
+        schema:
+          $ref: "#/definitions/optionsData"
+      externalDocs:
+        description: "Find more info here"
+        url: "https://swagger.io"
+definitions:
+  changeInfo: {}
+  gatheredData: {}
+  optionsData: {}
+  activePlug: {}

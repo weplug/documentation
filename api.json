@@ -31,9 +31,7 @@
         },
         "tags": [
           "devices"
-        ],
-        "regParameters": [],
-        "refParameters": []
+        ]
       },
       "post": {
         "responses": {
@@ -54,19 +52,6 @@
           "devices"
         ],
         "summary": "post gathered data",
-        "regParameters": [
-          {
-            "name": "",
-            "in": "body",
-            "description": "",
-            "required": true,
-            "type": "string",
-            "schema": {
-              "$ref": "#/definitions/gatheredData"
-            }
-          }
-        ],
-        "refParameters": [],
         "parameters": [
           {
             "name": "",
@@ -104,13 +89,55 @@
       ],
       "refParameters": []
     },
-    "devices/{id}/options": {},
-    "/devices/{id}/active-plug": {},
+    "devices/{id}/options": {
+      "get": {
+        "tags": [
+          "devices"
+        ],
+        "summary": "get actualized options for device",
+        "description": "",
+        "externalDocs": {
+          "description": "Find more info here",
+          "url": "https://swagger.io"
+        },
+        "operationId": "",
+        "consumes": [],
+        "produces": [],
+        "responses": {
+          "200": {}
+        }
+      }
+    },
+    "/devices/{id}/active-plug": {
+      "get": {
+        "tags": [
+          "devices"
+        ],
+        "summary": "get array with active plugs",
+        "description": "",
+        "externalDocs": {
+          "description": "Find more info here",
+          "url": "https://swagger.io"
+        },
+        "operationId": "",
+        "consumes": [],
+        "produces": [],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/activePlug"
+            }
+          }
+        }
+      }
+    },
     "/accounts": {},
     "/accounts/log-in": {
       "post": {
-        "tags": [],
-        "summary": "",
+        "tags": [
+          "accounts"
+        ],
+        "summary": "log in",
         "description": "",
         "externalDocs": {
           "description": "Find more info here",
@@ -123,8 +150,10 @@
     },
     "/accounts/{id}": {
       "get": {
-        "tags": [],
-        "summary": "",
+        "tags": [
+          "accounts"
+        ],
+        "summary": "get account informations",
         "description": "",
         "externalDocs": {
           "description": "Find more info here",
@@ -135,8 +164,10 @@
         "produces": []
       },
       "put": {
-        "tags": [],
-        "summary": "",
+        "tags": [
+          "accounts"
+        ],
+        "summary": "change account info",
         "description": "",
         "externalDocs": {
           "description": "Find more info here",
@@ -145,12 +176,47 @@
         "operationId": "",
         "consumes": [],
         "produces": []
-      }
+      },
+      "delete": {
+        "tags": [
+          "accounts"
+        ],
+        "summary": "delete account",
+        "description": "",
+        "externalDocs": {
+          "description": "Find more info here",
+          "url": "https://swagger.io"
+        },
+        "operationId": "",
+        "consumes": [],
+        "produces": []
+      },
+      "regParameters": [
+        {
+          "name": "id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "refParameters": [],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "integer"
+        }
+      ]
     },
     "/accounts/{id}/device/{device-id}": {
       "get": {
-        "tags": [],
-        "summary": "",
+        "tags": [
+          "accounts"
+        ],
+        "summary": "get info about device",
         "description": "",
         "externalDocs": {
           "description": "Find more info here",
@@ -161,8 +227,10 @@
         "produces": []
       },
       "post": {
-        "tags": [],
-        "summary": "",
+        "tags": [
+          "accounts"
+        ],
+        "summary": "set options for device",
         "description": "",
         "externalDocs": {
           "description": "Find more info here",
@@ -171,6 +239,177 @@
         "operationId": "",
         "consumes": [],
         "produces": []
+      },
+      "regParameters": [
+        {
+          "name": "id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "device-id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "refParameters": [],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "device-id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/accounts/register": {
+      "post": {
+        "tags": [
+          "accounts"
+        ],
+        "summary": "register new user",
+        "description": "",
+        "externalDocs": {
+          "description": "Find more info here",
+          "url": "https://swagger.io"
+        },
+        "operationId": "",
+        "consumes": [],
+        "produces": []
+      }
+    },
+    "/accounts/{id}/device": {
+      "get": {
+        "tags": [
+          "accounts"
+        ],
+        "summary": "get basic info about all devices",
+        "description": "",
+        "externalDocs": {
+          "description": "Find more info here",
+          "url": "https://swagger.io"
+        },
+        "operationId": "",
+        "consumes": [],
+        "produces": []
+      },
+      "regParameters": [
+        {
+          "name": "id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "refParameters": [],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/accounts/{id}/device/{device-id}/register": {
+      "post": {
+        "tags": [
+          "accounts"
+        ],
+        "summary": "register new device with sending options",
+        "description": "",
+        "externalDocs": {
+          "description": "Find more info here",
+          "url": "https://swagger.io"
+        },
+        "operationId": "",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "options",
+            "in": "body",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "$ref": "#/definitions/optionsData"
+            }
+          }
+        ]
+      },
+      "regParameters": [
+        {
+          "name": "id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "device-id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "refParameters": [],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "integer"
+        },
+        {
+          "name": "device-id",
+          "in": "header",
+          "description": "",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "gatheredData": {
+        "title": "Root Type for gatheredData",
+        "description": "The root of the gatheredData type's schema.",
+        "type": "object",
+        "properties": {
+          "temperature": {
+            "format": "double",
+            "type": "number"
+          },
+          "usedAmps": {
+            "format": "double",
+            "type": "number"
+          },
+          "light": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "movement": {
+            "type": "boolean"
+          }
+        }
       }
     }
   },
@@ -196,6 +435,30 @@
       "temperature": 21,
       "amps": 1121.5,
       "light": true
+    },
+    "optionsData": {
+      "alarms": [
+        {
+          "time": "14:53"
+        }
+      ],
+      "refresTime": 10
+    },
+    "activePlug": {
+      "active": [
+        true,
+        false,
+        false
+      ]
     }
-  }
+  },
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ]
 }
