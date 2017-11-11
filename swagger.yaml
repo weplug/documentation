@@ -1,261 +1,327 @@
----
-swagger: "2.0"
+swagger: '2.0'
 info:
-  description: ""
-  version: "1.0.0"
-  title: "Weplug project"
+  description: ''
+  version: 1.0.0
+  title: Weplug project
 tags:
-- {}
-- name: "devices"
-- name: "accounts"
+  - name: devices
+  - name: accounts
 schemes:
-- "https"
+  - https
 consumes:
-- "application/json"
+  - application/json
 produces:
-- "application/json"
+  - application/json
 paths:
-  /devices: {}
-  /devices/{id}:
+  '/devices/{id}':
     get:
       tags:
-      - "devices"
-      summary: "get info about changes for device"
-      description: "control if exist some changes for device"
+        - devices
+      summary: get info about changes for device
+      description: control if exist some changes for device
       parameters:
-      - name: "id"
-        in: "path"
-        required: true
-        type: "string"
+        - name: id
+          in: path
+          required: true
+          type: string
       responses:
-        200:
-          description: "get info about changes"
+        '200':
+          description: get info about changes
           schema:
-            $ref: "#/definitions/changeInfo"
+            $ref: '#/definitions/optionsData'
     post:
       tags:
-      - "devices"
-      summary: "post gathered data"
+        - devices
+      summary: post gathered data
       parameters:
-      - name: "id"
-        in: "path"
-        required: true
-        type: "string"
-      - in: "body"
-        name: ""
-        description: ""
-        required: true
-        schema:
-          $ref: "#/definitions/gatheredData"
-      responses:
-        200:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - in: body
+          name: ''
+          description: ''
+          required: true
           schema:
-            $ref: "#/definitions/changeInfo"
-  devices/{id}/options:
-    get:
-      tags:
-      - "devices"
-      summary: "get actualized options for device"
-      description: ""
-      operationId: ""
-      consumes: []
-      produces: []
-      parameters: []
+            $ref: '#/definitions/gatheredData'
       responses:
-        200: {}
-      externalDocs:
-        description: "Find more info here"
-        url: "https://swagger.io"
-  /devices/{id}/active-plug:
-    get:
-      tags:
-      - "devices"
-      summary: "get array with active plugs"
-      description: ""
-      operationId: ""
-      consumes: []
-      produces: []
-      parameters: []
-      responses:
-        200:
-          schema:
-            $ref: "#/definitions/activePlug"
-      externalDocs:
-        description: "Find more info here"
-        url: "https://swagger.io"
-  /accounts: {}
+        '200':
+          description: ''
   /accounts/log-in:
     post:
       tags:
-      - "accounts"
-      summary: "log in"
-      description: ""
-      operationId: ""
+        - accounts
+      summary: log in
+      description: ''
+      operationId: ''
       consumes: []
       produces: []
       parameters: []
-      externalDocs:
-        description: "Find more info here"
-        url: "https://swagger.io"
-  /accounts/{id}:
+      responses:
+        '200':
+          description: ''
+  '/accounts/{id}':
     get:
       tags:
-      - "accounts"
-      summary: "get account informations"
-      description: ""
-      operationId: ""
+        - accounts
+      summary: get account informations
+      description: ''
+      operationId: ''
       consumes: []
       produces: []
       parameters:
-      - name: "id"
-        in: "header"
-        description: ""
-        required: true
-        type: "integer"
-      externalDocs:
-        description: "Find more info here"
-        url: "https://swagger.io"
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: ''
     put:
       tags:
-      - "accounts"
-      summary: "change account info"
-      description: ""
-      operationId: ""
+        - accounts
+      summary: change account info
+      description: ''
+      operationId: ''
       consumes: []
       produces: []
       parameters:
-      - name: "id"
-        in: "header"
-        description: ""
-        required: true
-        type: "integer"
-      externalDocs:
-        description: "Find more info here"
-        url: "https://swagger.io"
+        - name: id
+          in: header
+          description: ''
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: ''
     delete:
       tags:
-      - "accounts"
-      summary: "delete account"
-      description: ""
-      operationId: ""
+        - accounts
+      summary: delete account
+      description: ''
+      operationId: ''
       consumes: []
       produces: []
       parameters:
-      - name: "id"
-        in: "header"
-        description: ""
-        required: true
-        type: "integer"
-      externalDocs:
-        description: "Find more info here"
-        url: "https://swagger.io"
-  /accounts/{id}/device/{device-id}:
+        - name: id
+          in: header
+          description: ''
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: ''
+  '/accounts/{id}/devices/{device-id}':
     get:
       tags:
-      - "accounts"
-      summary: "get info about device"
-      description: ""
-      operationId: ""
+        - accounts
+      summary: get info about device
+      description: ''
+      operationId: ''
       consumes: []
       produces: []
       parameters:
-      - name: "id"
-        in: "header"
-        description: ""
-        required: true
-        type: "integer"
-      - name: "device-id"
-        in: "header"
-        description: ""
-        required: true
-        type: "string"
-      externalDocs:
-        description: "Find more info here"
-        url: "https://swagger.io"
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: integer
+        - name: device-id
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/deviceData'
     post:
       tags:
-      - "accounts"
-      summary: "set options for device"
-      description: ""
-      operationId: ""
+        - accounts
+      summary: set options for device
+      description: ''
+      operationId: ''
       consumes: []
       produces: []
       parameters:
-      - name: "id"
-        in: "header"
-        description: ""
-        required: true
-        type: "integer"
-      - name: "device-id"
-        in: "header"
-        description: ""
-        required: true
-        type: "string"
-      externalDocs:
-        description: "Find more info here"
-        url: "https://swagger.io"
-  /accounts/register:
-    post:
-      tags:
-      - "accounts"
-      summary: "register new user"
-      description: ""
-      operationId: ""
-      consumes: []
-      produces: []
-      parameters: []
-      externalDocs:
-        description: "Find more info here"
-        url: "https://swagger.io"
-  /accounts/{id}/device:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: integer
+        - name: device-id
+          in: path
+          description: ''
+          required: true
+          type: string
+        - in: body
+          name: ''
+          description: ''
+          required: true
+          schema:
+            $ref: '#/definitions/optionsData'
+      responses:
+        '200':
+          description: ''
+  '/accounts/{id}/devices':
     get:
       tags:
-      - "accounts"
-      summary: "get basic info about all devices"
-      description: ""
-      operationId: ""
+        - accounts
+      summary: get basic info about all devices
+      description: ''
+      operationId: ''
       consumes: []
       produces: []
       parameters:
-      - name: "id"
-        in: "header"
-        description: ""
-        required: true
-        type: "integer"
-      externalDocs:
-        description: "Find more info here"
-        url: "https://swagger.io"
-  /accounts/{id}/device/{device-id}/register:
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: ''
+  '/accounts/{id}/devices/{device-id}/register':
     post:
       tags:
-      - "accounts"
-      summary: "register new device with sending options"
-      description: ""
-      operationId: ""
+        - accounts
+      summary: register new device with sending options
+      description: ''
+      operationId: ''
       consumes: []
       produces: []
       parameters:
-      - name: "id"
-        in: "header"
-        description: ""
-        required: true
-        type: "integer"
-      - name: "device-id"
-        in: "header"
-        description: ""
-        required: true
-        type: "string"
-      - in: "body"
-        name: "options"
-        description: ""
-        required: true
-        schema:
-          $ref: "#/definitions/optionsData"
-      externalDocs:
-        description: "Find more info here"
-        url: "https://swagger.io"
+        - name: id
+          in: path
+          description: ''
+          required: true
+          type: integer
+        - name: device-id
+          in: path
+          description: ''
+          required: true
+          type: string
+      responses:
+        '200':
+          description: ''
 definitions:
-  changeInfo: {}
-  gatheredData: {}
-  optionsData: {}
-  activePlug: {}
+  gatheredData:
+    type: object
+    properties:
+      temp:
+        type: number
+        format: float
+        description: namerana teplota
+      eConsumption:
+        type: array
+        items:
+          type: number
+          format: float
+          description: spotreba na jednotlivych meradlach
+      plugStates:
+        type: array
+        items:
+          $ref: '#/definitions/plugState'
+  optionsData:
+    type: object
+    properties:
+      modes:
+        $ref: '#/definitions/modes'
+      plugActive:
+        type: array
+        items:
+          type: boolean
+          description: ktora zastrcka ma byt aktualne zapnuta
+  deviceData:
+    type: object
+    properties:
+      temps:
+        type: array
+        items:
+          $ref: '#/definitions/temperature'
+      eConsumption:
+        type: array
+        items:
+          $ref: '#/definitions/consumption'
+      modes:
+        $ref: '#/definitions/modes'
+      plugStates:
+        type: array
+        items:
+          $ref: '#/definitions/plugState'
+  modes:
+    type: object
+    properties:
+      manual:
+        type: boolean
+        description: zapnute alebo vypnute manualne ovladanie
+      timers:
+        $ref: '#/definitions/timers'
+      light:
+        type: object
+        properties:
+          start:
+            type: number
+            format: float
+            description: start intenzita pre zapnutie zasuvky
+          stop:
+            type: number
+            format: float
+            description: stop intenzita pre vypnutie zasuvky
+          plug:
+            type: array
+            items:
+              type: boolean
+              description: ktore sa zapnu
+      move:
+        type: object
+        properties:
+          active:
+            type: boolean
+            description: aktivne na pohyb?
+          plug:
+            type: array
+            items:
+              type: boolean
+              description: ktore sa zapnu
+  consumption:
+    type: object
+    properties:
+      consume:
+        type: number
+        format: float
+        description: velkost spotreby
+      time:
+        type: string
+        format: date-time
+        description: kedy prebehlo ulozenie merania
+  temperature:
+    type: object
+    properties:
+      temp:
+        type: number
+        format: float
+        description: namerana teplota
+      time:
+        type: string
+        format: date-time
+        description: kedy prebehlo ulozenie merania
+  plugState:
+    type: string
+    enum:
+      - 'ON'
+      - 'OFF'
+      - ERROR
+  timers:
+    type: object
+    properties:
+      plugTimers:
+        type: array
+        items:
+          type: array
+          items:
+            type: string
+            format: date-time
+            description: kedy sa ma zapnut
